@@ -5,6 +5,10 @@ import axios from 'axios';
 import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom'
 import { Atom } from "react-loading-indicators";
+import Errorpage from "./Errorpage";
+import Button from "../atoms/button/Button";
+import Pagebutton from "../atoms/pagination_button/Pagebutton";
+
 
 const Home = () => {
     const userList = useSelector((state) => state.users.userList)
@@ -18,7 +22,7 @@ const Home = () => {
         const getdata = () => {
             setLoading(true);
             axios.get('https://jsonplaceholder.typicode.com/users',
-            { params: { _page: page, _limit: 4 } }
+                { params: { _page: page, _limit: 4 } }
             )
                 .then((response) => {
                     dispatch(setuserlist(response.data));
@@ -34,16 +38,19 @@ const Home = () => {
         getdata();
     }, [page])
 
-    const pagechange = (data)=>{
-        setPage((prev)=>prev + data)
+    const pagechange = (data) => {
+        setPage((prev) => prev + data)
     }
+
+    if (error)
+        return <Errorpage />
 
     return (
         <div className="main_parent">
             <h1 className="page_heading">Users</h1>
 
             {
-                loading ? <div className="loading"><Atom size="large" /></div> : <div className="parent">
+                loading ? <div className="loading"><Atom size="large" color='#eaffea' /></div> : <div className="parent">
                     {
                         userList.map((elem) => (
                             <div className="main_card" key={elem.id}>
@@ -64,8 +71,15 @@ const Home = () => {
                                         <p className="mobile"><i className="fa-solid fa-phone"></i> {elem.phone}</p>
                                         <p className="city"><i className="fa-solid fa-city"></i> {elem.address.city}</p>
 
-                                        <button className="more_details_button" onClick={() => { navigate(`/${elem.id}`) }}
-                                        ><i className="fa-solid fa-circle-info"></i> More Details..</button>
+                                        {/* <button className="more_details_button" onClick={() => { navigate(`/${elem.id}`) }}
+                                        ><i className="fa-solid fa-circle-info"></i> More Details..</button> */}
+
+                                        <Button
+                                            myfun={() => { navigate(`/${elem.id}`) }}
+                                            icon_name={<i className="fa-solid fa-circle-info"></i>}
+                                            name="More Details.."
+                                            myclass="more_details_button"
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -75,9 +89,22 @@ const Home = () => {
             }
 
             <div className="pagination">
-                <button disabled={page===1} onClick={()=>{pagechange(-1)}}>prev</button>
+                <Pagebutton
+                    myfun={() => { pagechange(-1) }}
+                    name="prev"
+                    page={page}
+                    limit={1}
+                />
+                <Pagebutton name={page} page={page}/>
+                <Pagebutton
+                    myfun={() => { pagechange(1) }}
+                    name="next"
+                    page={page}
+                    limit={3}
+                />
+                {/* <button disabled={page === 1} onClick={}>prev</button>
                 <button>{page}</button>
-                <button disabled={page===3} onClick={()=>{pagechange(1)}}>next</button>
+                <button disabled={page === 3} onClick={() => { pagechange(1) }}>next</button> */}
             </div>
 
         </div>

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { setuserdetails } from "../../Redux/userListSlice";
 import { Atom } from "react-loading-indicators";
+import Errorpage from "./Errorpage";
 
 const Details = () => {
     const { id } = useParams();
@@ -13,6 +14,7 @@ const Details = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const navigate = useNavigate();
+
 
     useEffect(() => {
         const getdata = () => {
@@ -32,11 +34,19 @@ const Details = () => {
         getdata();
     }, [])
 
+    
+    if(id < 1 || id > 10)
+    return <Errorpage/>
+
+
+    if(error)
+    return <Errorpage/>
+
     return (
 
-        <div>
+        <div className="details_homepage">
             {
-                loading ? <div className="loading"><Atom size="large" /></div> : <div className="main_detail_parent">
+                loading ? <div className="loading"><Atom size="large" color='#eaffea'/></div> : <div className="main_detail_parent">
 
 
                     <div className="user_heading">
@@ -65,14 +75,14 @@ const Details = () => {
 
                     <div className="company_details">
                         <h3>- Compant Details -</h3>
-                        <p><i class="fa-solid fa-industry"></i> {userDetails.company.name}</p>
+                        <p><i className="fa-solid fa-industry"></i> {userDetails.company.name}</p>
                         <p>" {userDetails.company.catchPhrase} "</p>
                         <p>" {userDetails.company.bs} "</p>
                         <p>Website - <a href="#">{userDetails.website}</a></p>
                     </div>
 
                     <button className="goto_user_page" onClick={()=>{navigate('/')}}
-                    ><i class="fa-solid fa-backward"></i> Back</button>
+                    ><i className="fa-solid fa-backward"></i> Back</button>
                 </div>
             }
         </div>

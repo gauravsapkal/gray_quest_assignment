@@ -1,5 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Sevillana&display=swap');
+/* above for cursive */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.errorimage{
+    width: 98%;
+    margin: auto;
+    display: flex;
+    height: 97vh;
+}
+
 .page_heading{
     text-align: center;
+    font-family: 'Sevillana', cursive;
+    color: white;
+}
+
+body{
+    background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+    font-family: 'Roboto', sans-serif;
 }
 
 .main_card{
@@ -7,6 +26,7 @@
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 10px;
+    background: linear-gradient(to bottom, #ccffcc 0%, #ffffff 100%);
 }
 
 .main_card:nth-child(odd) .user_image{
@@ -89,6 +109,7 @@
     justify-content: space-between;
     border-radius: 5px;
     border: none;
+    background: linear-gradient(to bottom, #ffcccc 0%, #ccffcc 100%);
 }
 
 .more_details_button:hover{
@@ -107,6 +128,7 @@
     padding: 5px;
     border-radius: 5px;
     font-size: 18px;
+    background: linear-gradient(to right, #92dff4 0%, #ffffcc 100%);
 }
 
 .pagination button:hover{
@@ -123,6 +145,11 @@
     margin-top: 40px;
     padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background: linear-gradient(to bottom, #ccffcc 0%, #ffffff 100%);
+}
+
+.details_homepage{
+    height: 650px;
 }
 
 .user-heading_image{
@@ -193,6 +220,12 @@
     border: none;
     padding: 5px;
     margin-bottom: 40px;
+    background: linear-gradient(to right, #ffcc99 0%, #ffffff 100%);
+}
+
+.goto_user_page:hover{
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 @media all and (max-width: 560px) {
