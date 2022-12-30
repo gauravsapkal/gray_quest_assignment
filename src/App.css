@@ -1,0 +1,235 @@
+.page_heading{
+    text-align: center;
+}
+
+.main_card{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.main_card:nth-child(odd) .user_image{
+    background-color: #00579c;
+    color: white;
+}
+
+.main_card:nth-child(even) .user_image{
+    background-color: #0288d1;
+    color: white;
+}
+
+.main_card:hover{
+    cursor: pointer;
+}
+
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+}
+
+.main_parent{
+    width: 40%;
+    margin: auto;
+}
+
+.header{
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.user_image{
+    border-radius: 50%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    font-size: 35px;
+    font-weight: bolder;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.user_image:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.name_details{
+    margin-left: 25px;
+}
+
+.username_email{
+    margin-top: -30px;
+}
+
+.username_email{
+    /* border: 1px solid red; */
+    display: flex;
+}
+
+.username_email p:nth-child(2){
+    margin-left: 20px;
+}
+
+.mobile{
+    margin-top: 0px;
+}
+
+.more_details_button{
+    margin-bottom: 10px;
+    padding: 5px;
+    display: flex;
+    width: 120px;
+    justify-content: space-between;
+    border-radius: 5px;
+    border: none;
+}
+
+.more_details_button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.pagination button{
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.pagination button:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* ------------------------------------------------------------- */
+
+.main_detail_parent{
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 40px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.user-heading_image{
+    border-radius: 50%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    font-size: 45px;
+    font-weight: bolder;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-top: 10px;
+    color: white;
+    background-color: #0288d1;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.user-heading_image:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.user_heading_name{
+    text-align: center;
+    font-size: 40px;
+}
+
+.details_username_email{
+    display: flex;
+    justify-content: center;
+    margin-top: -30px;
+    font-size: 20px;
+}
+
+.details_username_email p:nth-child(2){
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.address_details{
+    text-align: center;
+    margin-top: -20px;
+}
+
+.company_details{
+
+}
+
+.company_details h3{
+    text-align: center;
+
+}
+
+.company_details p{
+    text-align: center;
+    
+}
+
+.goto_user_page{
+    width: 12%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    margin-bottom: 40px;
+}
+
+@media all and (max-width: 560px) {
+    .main_parent {
+      width: 100%;
+    }
+    .main_detail_parent{
+        width: 100%;
+    }
+    .details_username_email{
+        display: block;
+        text-align: center;
+        margin-top: 5px;
+        margin-bottom: 40px;
+    }
+  }
+  
+  @media all and (min-width: 561px) and (max-width: 830px) {
+    .main_parent {
+      width: 80%;
+    }
+    .main_detail_parent{
+        width: 80%;
+    }
+    .details_username_email{
+        display: block;
+        text-align: center;
+        margin-top: 5px;
+        margin-bottom: 40px;
+    }
+  }
+  
+  @media all and (min-width: 829px) and (max-width: 986px) {
+    .main_parent {
+      width: 60%;
+    }
+    .main_detail_parent{
+        width: 80%;
+    }
+  }
