@@ -56,7 +56,7 @@ body{
     margin: auto;
 }
 
-.header{
+.carddata{
     display: flex;
     /* justify-content: space-between; */
 }
@@ -80,9 +80,10 @@ body{
     transform: scale(1.05);
 }
 
-.name_details{
+.user_details{
     margin-left: 25px;
 }
+/* do gooodddddddddddddddddddddddddddddddddddd think */
 
 .username_email{
     margin-top: -30px;

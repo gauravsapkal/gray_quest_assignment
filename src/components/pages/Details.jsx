@@ -5,20 +5,20 @@ import { useNavigate, useParams } from "react-router-dom";
 import { setuserdetails } from "../../Redux/userListSlice";
 import { Atom } from "react-loading-indicators";
 import Errorpage from "./Errorpage";
+import { setLoading } from "../../Redux/LoadingSlice";
 
 const Details = () => {
     const { id } = useParams();
 
     const userDetails = useSelector((state) => state.users.userDetails)
+    const loading = useSelector((state) => state.loader.loading)
     const dispatch = useDispatch();
-    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const navigate = useNavigate();
 
-
     useEffect(() => {
         const getdata = () => {
-            setLoading(true);
+            dispatch(setLoading(true));
             axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
                 .then((response) => {
                     dispatch(setuserdetails(response.data));
@@ -28,10 +28,11 @@ const Details = () => {
                     setError(true);
                 })
                 .then(() => {
-                    setLoading(false);
+                    dispatch(setLoading(false));
                 });
         }
         getdata();
+        // eslint-disable-next-line
     }, [])
 
     
@@ -78,6 +79,7 @@ const Details = () => {
                         <p><i className="fa-solid fa-industry"></i> {userDetails.company.name}</p>
                         <p>" {userDetails.company.catchPhrase} "</p>
                         <p>" {userDetails.company.bs} "</p>
+                        {/* eslint-disable-next-line */}
                         <p>Website - <a href="#">{userDetails.website}</a></p>
                     </div>
 

@@ -3,7 +3,7 @@
 const Pagebutton = ({myfun, name, page, limit})=>{
 
     return(
-        <button disabled={page===limit} onClick={myfun ? myfun : ""} >{name}</button>
+        <button disabled={page===limit} onClick={myfun} >{name}</button>
     )
 }
 
