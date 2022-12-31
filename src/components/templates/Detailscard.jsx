@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { setLoading } from "../../Redux/LoadingSlice";
 import Errorpage from "../pages/Errorpage";
-import { Atom } from "react-loading-indicators";
 import { setuserdetails } from "../../Redux/userListSlice";
 import Detailsheading from "../molecules/detailsheading/Detailsheading";
 import Detailsbody from "../molecules/detailsbody/Detailsbody";
+import Button from "../atoms/button/Button";
+import Loader from "../atoms/loading/Loader";
 
 
 const Detailscard = ({ myclass }) => {
@@ -42,17 +43,19 @@ const Detailscard = ({ myclass }) => {
 
     return (
         <div className={myclass}>
-
+            
             {
-                loading ? <div className="loading"><Atom size="large" color='#eaffea' /></div> : <div className="main_detail_parent">
+                loading ? <Loader myclass="loading"/> : <div className="main_detail_parent">
 
 
                     <Detailsheading myclass="user_heading" />
 
                     <Detailsbody myclass="company_details"/>
 
-                    <button className="goto_user_page" onClick={() => { navigate('/') }}
-                    ><i className="fa-solid fa-backward"></i> Back</button>
+                    <Button myclass="goto_user_page" name="Back"
+                    myfun={() => { navigate('/') }}
+                    icon_name={<i className="fa-solid fa-backward"></i>}
+                    />
                 </div>
             }
 

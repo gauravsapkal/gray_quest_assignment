@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sevillana&display=swap');
-/* above for cursive */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .errorimage{
     width: 98%;
@@ -196,10 +193,6 @@ body{
 .address_details{
     text-align: center;
     margin-top: -20px;
-}
-
-.company_details{
-
 }
 
 .company_details h3{

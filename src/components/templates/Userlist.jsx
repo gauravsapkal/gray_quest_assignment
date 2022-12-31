@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import H1tag from "../atoms/h1tag/H1tag";
-import { Atom } from "react-loading-indicators";
 import Card from "../organisms/card/Card";
 import Pagination from "../organisms/pagination/Pagenation";
 import { setLoading } from "../../Redux/LoadingSlice";
@@ -8,6 +7,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { setuserlist } from "../../Redux/userListSlice";
 import Errorpage from "../pages/Errorpage";
+import Loader from "../atoms/loading/Loader";
 
 const Userlist = ({ myclass }) => {
     const loading = useSelector((state) => state.loader.loading)
@@ -51,7 +51,7 @@ const Userlist = ({ myclass }) => {
             <H1tag myclass="page_heading" name="Users" />
 
             {
-                loading ? <div className="loading"><Atom size="large" color='#eaffea' /></div> : <div className="parent">
+                loading ? <Loader myclass="loading"/> : <div className="parent">
                     {
                         userList.map((elem) => (
 

@@ -24,7 +24,7 @@ const Detailsheading = ({ myclass }) => {
             </div>
 
             <div className="address_details">
-                <Para icon_name={<i className="fa-solid fa-city"></i>} 
+                <Para icon_name={<i class="fa-solid fa-location-dot"></i>} 
                 name={`${userDetails.address.street}, ${userDetails.address.suite}, ${userDetails.address.city},
                 zip - ${userDetails.address.zipcode}`}/>
             </div>
